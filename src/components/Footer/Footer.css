@@ -1,0 +1,68 @@
+.footer {
+    background-color: var(--background-color-lighter);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-size: 0.9rem; /* Tamaño de fuente general para el footer */
+  }
+  
+  .footer__section h4 {
+    color: var(--action-primary);
+    margin-bottom: 1em;
+  }
+  
+  .footer__section ul {
+    list-style: none; /* Remueve bullets o cualquier decoración de lista */
+    padding: 0; /* Remueve padding por defecto de las listas */
+  }
+  
+  .footer__section ul li {
+    margin-bottom: 0.5rem; /* Espacio entre elementos de lista */
+  }
+  
+  .footer__section ul li a {
+    color: inherit; /* Hereda el color del texto del footer, que es blanco */
+    text-decoration: none; /* Remueve la decoración de subrayado de los enlaces */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+  }
+  
+  .footer__section ul li a:hover {
+    color: var(--action-primary); /* Cambio de color en hover */
+  }
+  
+  .social__links {
+    display: flex;
+    gap: 1rem; /* Espacio entre los enlaces sociales */
+    margin-top: 0; /* Espacio superior */
+  }
+  
+  .social__links > a,
+  .footer__section > a {
+    transition: color 0.3s ease;
+  }
+  
+  .social__links > a:hover,
+  .footer__section > a:hover {
+    color: var(--action-primary); /* Cambio de color en hover */
+  }
+  
+  /* Media queries para responsividad */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer__section {
+      width: 100%; /* Cada sección ocupa el ancho completo en dispositivos pequeños */
+      margin-bottom: 1rem;
+    }
+  
+    .social__links {
+      margin-top: 1rem; /* Espacio adicional sobre los enlaces sociales en dispositivos pequeños */
+    }
+  }
+  

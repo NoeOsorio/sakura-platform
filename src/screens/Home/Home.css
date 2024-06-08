@@ -1,0 +1,213 @@
+.main {
+    background-color: var(--background-color-lighter);
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem clamp(1em, 1vw, 6em);
+    min-height: 80vh;
+  }
+
+  .main__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 3em;
+    text-align: center;
+    
+  }
+  
+  .main__content span {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+  }
+  
+  .main__content h1 {
+    font-size: 2.5rem;
+    margin: 1em 0;
+    max-width: 20rem;
+  }
+  
+  .main__content p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-tertiary);
+  }
+  
+  .main__content > .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .main__button {
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--action-primary);
+    color: var(--background-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out 0s, color 0.3s ease-in-out 0s;
+    max-width: 10em;
+  }
+  
+  .main__button:hover {
+    background-color: var(--hover-color);
+    color: var(--text-primary);
+  }
+  
+  .icon__button,
+  .roundedButton {
+    background-color: var(--text-tertiary);
+    color: var(--text-primary);
+    border-radius: 0.5em;
+    border: none;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    font-size: clamp(1rem, 1vw, 1.2rem);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out 0s;
+  }
+  
+  .icon__button:hover,
+  .roundedButton:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .main__course {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0em 3em;
+    height: 100%;
+  }
+  
+  .main__course section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2em 8em;
+    max-width: 50em;
+  }
+  
+  .roundedButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .roundedButton {
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+  }
+  
+  .main__course img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+  @media (max-width: 1024px) {
+    .main__content > .buttons :first-child {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .main {
+      grid-template-columns: 1fr;
+      /* padding: 2rem; */
+    }
+    .main__content,
+    .main__course {
+      padding: 0;
+      margin-bottom: 4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+  }
+  
+  .continue__watching {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 3rem;
+  }
+  
+  .continue__watching h2 {
+    font-size: 1.5rem;
+    padding-left: 0.5em;
+    color: var(--text-primary);
+  }
+  
+  .course__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    overflow-x: auto; /* Mantiene el scroll horizontal aquí */
+    overflow-y: hidden; /* Asegúrate de que no haya scroll vertical */
+    margin-top: 2em;
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible del padre */
+    min-width: 0; /* Esto ayuda a evitar problemas en algunos navegadores */
+  }
+  
+  .course__card .progress__bar {
+    height: 4px; /* Altura de la barra de progreso */
+    background-color: var(--action-primary); /* Color de la barra de progreso */
+    width: 100%; /* Ancho inicial, puedes ajustarlo dinámicamente con JS o React props */
+    border-radius: 0 0 0.5em 0.5em; /* Redondear los bordes inferiores para coincidir con el card */
+  }
+  
+  .course__card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 0.5em; /* Asegura que solo las esquinas superiores estén redondeadas */
+    border-top-right-radius: 0.5em;
+  }
+  
+  /* Ajusta los estilos para que no haya espacio extra indeseado entre la imagen y la barra de progreso */
+  .course__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0; /* Elimina el espacio entre los elementos internos */
+    min-width: 15em;
+    background-color: var(--background-color);
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 1em;
+    transition: background-color 0.3s ease-in-out 0s;
+  }
+  
+  .course__card:hover {
+    background-color: var(--background-color-lighter);
+  }
+  
+  .course__card h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin: 0.5em 0;
+  }
+  
+  .course__card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
