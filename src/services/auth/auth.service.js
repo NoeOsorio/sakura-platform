@@ -1,10 +1,10 @@
-import { auth, firestore } from "../../firebase";
+import axios from "axios";
+import { auth } from "../../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut as _signOut,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
 
 export const signIn = (email, password) => {
   try {
@@ -23,7 +23,7 @@ export const signOut = async () => {
   }
 };
 
-export const signUp = async (email, password) => {
+export const signUp = async ({ email, password, firstName, lastName }) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -31,10 +31,11 @@ export const signUp = async (email, password) => {
       password
     );
     const user = userCredential.user;
-    await setDoc(doc(firestore, "users", user.uid), {
-      email: user.email,
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/users`, {
+      email,
+      first_name: firstName,
+      last_name: lastName,
       uid: user.uid,
-      role: "student",
     });
     return userCredential;
   } catch (error) {

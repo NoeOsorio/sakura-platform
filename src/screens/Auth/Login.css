@@ -1,11 +1,19 @@
 
 .login-container {
-    background: var(--background-color-lighter);
+    background: var(--background-color);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
     width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-form{
+    width: 20em;
   }
   
   .login-title {
@@ -42,10 +50,20 @@
   }
   
   .login-button {
+    margin-top: 2em;
     background-color: var(--action-primary);
     color: var(--foreground-color);
   }
+
+  .login-button:disabled{
+    background-color: var(--text-tertiary);
+    color: var(--background-color);
+  }
   
+  .login-button:disabled:hover{
+    background-color: var(--text-tertiary);
+  }
+
   .register-button {
     background-color: var(--background-color);
     color: var(--foreground-color);
@@ -54,4 +72,15 @@
   .login-button:hover,
   .register-button:hover {
     background-color: var(--hover-color);
+  }
+
+  .register-link{
+    color: var(--text-tertiary);
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .register-link:hover{
+    color: var(--text-secondary);
   }
