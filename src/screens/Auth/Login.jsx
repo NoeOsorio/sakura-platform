@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from "react";
 import { signIn, signUp } from "../../services/auth/auth.service";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
@@ -11,36 +13,46 @@ const Login = () => {
   const [lastName, setLastName] = useState("");
 
   const handleLogin = async () => {
-    const user = await signIn(email, password); // This is the same as calling signInWithEmailAndPassword from firebase/auth
-    console.log(user);
+    await signIn(email, password); // This is the same as calling signInWithEmailAndPassword from firebase/auth
+    navigate("/");
   };
 
   const handleRegister = async () => {
     try {
-      const user = await signUp({
-        email, password, firstName, lastName
+      await signUp({
+        email,
+        password,
+        firstName,
+        lastName,
       });
-      console.log(user);
+
+      navigate("/");
     } catch (error) {
       console.error("Error signing up with email and password", error);
     }
   };
 
-  const isValid = useMemo(()=>{
-
-    if(isLogin){
+  const isValid = useMemo(() => {
+    if (isLogin) {
       return !!email && !!password;
-    }else{
-      return !!email && !!password && (confirmPassword === password) && !!firstName && !!lastName;
+    } else {
+      return (
+        !!email &&
+        !!password &&
+        confirmPassword === password &&
+        !!firstName &&
+        !!lastName
+      );
     }
-  },[email, password, confirmPassword, firstName, lastName, isLogin])
+  }, [email, password, confirmPassword, firstName, lastName, isLogin]);
 
-  console.log({isValid});
   return (
     <div className="login-container">
       <div className="login-form">
         <h2 className="login-title">Sakura Academy</h2>
-        <label htmlFor="email" className="login-label">Correo electrónico</label>
+        <label htmlFor="email" className="login-label">
+          Correo electrónico
+        </label>
         <input
           type="email"
           id="email"
@@ -49,7 +61,9 @@ const Login = () => {
           placeholder="Correo electrónico"
           className="login-input"
         />
-        <label htmlFor="password" className="login-label">Contraseña</label>
+        <label htmlFor="password" className="login-label">
+          Contraseña
+        </label>
         <input
           type="password"
           id="password"
@@ -59,12 +73,18 @@ const Login = () => {
           className="login-input"
         />
         {isLogin ? (
-          <button onClick={handleLogin} disabled={!isValid} className="login-button">
+          <button
+            onClick={handleLogin}
+            disabled={!isValid}
+            className="login-button"
+          >
             Iniciar Sesión
           </button>
         ) : (
           <>
-            <label htmlFor="confirmPassword" className="login-label">Confirmar Contraseña</label>
+            <label htmlFor="confirmPassword" className="login-label">
+              Confirmar Contraseña
+            </label>
             <input
               type="password"
               id="confirmPassword"
@@ -73,7 +93,9 @@ const Login = () => {
               placeholder="Confirmar Contraseña"
               className="login-input"
             />
-            <label htmlFor="firstName" className="login-label">Nombre</label>
+            <label htmlFor="firstName" className="login-label">
+              Nombre
+            </label>
             <input
               type="text"
               id="firstName"
@@ -82,7 +104,9 @@ const Login = () => {
               placeholder="Nombre"
               className="login-input"
             />
-            <label htmlFor="lastName" className="login-label">Apellido</label>
+            <label htmlFor="lastName" className="login-label">
+              Apellido
+            </label>
             <input
               type="text"
               id="lastName"
@@ -91,7 +115,11 @@ const Login = () => {
               placeholder="Apellido"
               className="login-input"
             />
-            <button onClick={handleRegister} disabled={!isValid} className="login-button">
+            <button
+              onClick={handleRegister}
+              disabled={!isValid}
+              className="login-button"
+            >
               Registrarse
             </button>
           </>

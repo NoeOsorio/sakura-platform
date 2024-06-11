@@ -1,30 +1,27 @@
 import React from "react";
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./hooks/PrivateRoute";
-import { Footer } from "./components";
+import { Footer, Navbar } from "./components";
 import { Home, Login } from "./screens";
-import { AuthProvider } from "./hooks/AuthContext";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
-    <AuthProvider>
-      <Outlet />
+    <PrivateRoute>
+      <Navbar />
+      {children}
       <Footer />
-    </AuthProvider>
+    </PrivateRoute>
   );
 };
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    children: [
-      { path: "login", element: <Login /> },
-      {
-        path: "",
-        element: <PrivateRoute />,
-        children: [{ path: "", element: <Home /> }],
-      },
-    ],
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    ),
   },
+  { path: "login", element: <Login /> },
 ]);
