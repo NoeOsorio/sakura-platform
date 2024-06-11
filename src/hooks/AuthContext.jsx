@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
-      setLoading(false);
+      
 
       if (user) {
         const userDocRef = doc(firestore, "users", user.uid);
@@ -24,10 +24,10 @@ export const AuthProvider = ({ children }) => {
       } else {
         setUserInfo(null);
       }
+      setLoading(false);
     });
     return unsubscribe;
   }, []);
-
   return (
     <AuthContext.Provider
       value={{

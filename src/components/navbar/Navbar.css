@@ -10,7 +10,7 @@
     display: block;
     line-height: 45px;
     text-decoration: none;
-    color: var(--action-primary);
+    color: white;
     font-size: 16px;
     font-weight: 700;
   }
@@ -45,7 +45,7 @@
 
 .links {
     display: grid;
-    grid-template-columns: 5em 5em 7em 3em 4fr;
+    grid-template-columns: 5em  9em 5em 4fr;
     align-items: center;
   }
   

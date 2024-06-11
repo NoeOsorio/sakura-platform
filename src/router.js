@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./hooks/PrivateRoute";
 import { Footer, Navbar } from "./components";
-import { Home, Login } from "./screens";
+import { Home, Login, Profile } from "./screens";
 
 const Layout = ({ children }) => {
   return (
@@ -20,6 +20,14 @@ export const router = createBrowserRouter([
     element: (
       <Layout>
         <Home />
+      </Layout>
+    ),
+  },
+  {
+    path:"/profile",
+    element: (
+      <Layout>
+        <Profile />
       </Layout>
     ),
   },

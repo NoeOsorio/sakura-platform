@@ -1,22 +1,30 @@
+import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/AuthContext";
 import "./Navbar.css";
 
 const Navbar = () => {
-    return (
-        <nav id="menu">
-              <input type="checkbox" id="responsive-menu" />
+  const { userInfo } = useAuth();
+
+  console.log(userInfo);
+  const { first_name, last_name } = userInfo;
+  return (
+    <nav id="menu">
+      <input type="checkbox" id="responsive-menu" />
       <label></label>
       <div className="links">
-        <a href="#home">Home</a>
-        <a href="#about">Explora</a>
-        <a href="#services">Mi Progreso</a>
-        <a href="#portfolio">Cursos</a>
+        <Link to="/">Home</Link>
+        <Link to="/progreso">Mi Progreso</Link>
+        <Link to="/cursos">Cursos</Link>
         <div className="profile__container">
-          <span>Robin</span>
-         
+          {userInfo && (
+            <Link to="/profile">
+              {first_name} {last_name}
+            </Link>
+          )}
         </div>
       </div>
     </nav>
-    )
-}
+  );
+};
 
 export default Navbar;
