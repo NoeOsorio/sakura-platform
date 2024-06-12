@@ -2,7 +2,6 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./screens/Home/Home";
 import Footer from "./components/Footer/Footer";
-import Login from "./screens/Auth/Login";
 
 
 
@@ -12,7 +11,6 @@ function App() {
     <div>
       <Navbar />
       <Home />
-      <Login />
       <Footer />
     </div>
   );

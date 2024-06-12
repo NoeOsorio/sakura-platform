@@ -167,7 +167,7 @@
     min-width: 0; /* Esto ayuda a evitar problemas en algunos navegadores */
   }
   
-  .course__card .progress__bar {
+  .course__card .course__progress-bar {
     height: 4px; /* Altura de la barra de progreso */
     background-color: var(--action-primary); /* Color de la barra de progreso */
     width: 100%; /* Ancho inicial, puedes ajustarlo dinámicamente con JS o React props */

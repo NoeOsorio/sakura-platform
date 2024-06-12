@@ -1,0 +1,123 @@
+
+
+.courses > h1 {
+  font-size: 2.5rem;
+  margin: 1em 0;
+  max-width: 20rem;
+  margin-left: 1em;
+}
+
+.courses__cards {
+display:flex;
+flex-wrap:wrap;
+gap: 2em;
+justify-content: center;
+}
+
+/* Couse detail */
+
+.course-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color);
+  margin-bottom: 3em;
+}
+
+.course-detail > header  > div{
+    justify-self: right;
+}
+
+.course-detail > header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:4em;
+  align-items: center;
+  justify-items: right;
+  padding: 3em;
+  width: 100%;
+  background-color: var(--background-color);
+}
+
+
+.course-detail > header > img {
+  width: 23em;
+  height: auto;
+  border-radius: 0.5em;
+  justify-self: left;
+}
+
+.course-detail__title {
+  font-size: 2em;
+}
+
+.course-detail__description {
+  font-size: 1.1em;
+  margin-top: 1em;
+}
+
+.course-detail__buttons {
+  display: flex;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.course-detail__button {
+  padding: 0.5em 1.5em;
+  border: none;
+  border-radius: 0.5em;
+  background-color: var(--text-primary);
+  color: var(--background-color);
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out 0s, color 0.3s ease-in-out 0s;
+  max-width: 10em;
+}
+
+.course-detail__button:hover {
+  background-color: var(--hover-color);
+  color: var(--text-primary);
+}
+
+.course-detail > main {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: clamp(15em, 70vw,50em);
+  margin-top: 2em;
+}
+
+.course-detail > main > h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+}
+
+.course-detail > main > p, .course-detail > main > ul {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 1024px) {
+  
+
+  .course-detail > header {
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+
+  .course-detail > header > img {
+    width: 100%;
+  }
+
+  .course-detail__buttons {
+    flex-direction: column;
+  }
+
+  .course-detail__button {
+    max-width: 100%;
+  }
+
+  
+    
+}
