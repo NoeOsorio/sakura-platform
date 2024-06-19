@@ -13,13 +13,14 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
-      
-
       if (user) {
+        setLoading(true)
+        console.log(user.uid)
         const userDocRef = doc(firestore, "users", user.uid);
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
           setUserInfo(userDoc.data());
+          setLoading(false);
         }
       } else {
         setUserInfo(null);

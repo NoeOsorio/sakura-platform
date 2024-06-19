@@ -16,6 +16,10 @@ const Navbar = () => {
   };
 
   console.log(userInfo);
+
+  if(userInfo === null) {
+    return null;
+  }
   const { first_name, last_name } = userInfo;
 
   return (
